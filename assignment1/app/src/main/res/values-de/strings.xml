@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MovieTracker</string>
+    <string name="button">Klicke mich</string>
+    <string name="clicked_x_times">Wurde %1$d Mal geklickt</string>
+    <string name="clicks_5">Klicks: 5</string>
+</resources>

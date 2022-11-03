@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">MovieTracker</string>
+    <string name="button">Button</string>
+    <string name="clicked_x_times">Clicked %1$d times</string>
+    <string name="clicks_5">clicks: 5</string>
+</resources>
