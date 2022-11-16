@@ -1,21 +1,19 @@
-package de.hdmstuttgart.movietracker;
+package de.hdmstuttgart.movietracker.ui;
 
-import android.content.ClipData;
-import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.view.menu.MenuView;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+
+import de.hdmstuttgart.movietracker.R;
+import de.hdmstuttgart.movietracker.model.Movie;
 
 public class MovieListAdapter extends RecyclerView.Adapter<MovieListAdapter.MovieViewHolder> {
     //Lädt items

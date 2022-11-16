@@ -1,24 +1,24 @@
-package de.hdmstuttgart.movietracker;
+package de.hdmstuttgart.movietracker.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Adapter;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
 
 import java.util.ArrayList;
-import java.util.List;
+
+import de.hdmstuttgart.movietracker.R;
+import de.hdmstuttgart.movietracker.ui.search.SearchActivity;
 
 public class MainActivity extends AppCompatActivity {
-
+    //1:37:01
     private RecyclerView recyclerView;
     private MovieListAdapter adapter;
+    private MainViewModel viewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,18 +30,32 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setHasFixedSize(true);
 
+        viewModel = new ViewModelProvider(this).get(MainViewModel.class);
+
         adapter = new MovieListAdapter(
-                MovieDb.getInstance().savedMovies,
-                (movie, position)  -> {
-                    MovieListAdapter adapter = (MovieListAdapter) recyclerView.getAdapter();
-                    if (adapter == null) {
-                        return;
+                new ArrayList<>(),
+                (movie,position) -> {}
+        );
+
+        //wenn ein neuer Film hinzugefügt wird, wird ein neuer Adapter erstellt
+        viewModel.getSavedMovies().observe(this, movies -> {
+                if(movies == null) return;
+                adapter = new MovieListAdapter(
+                        movies,
+                        (movie, position)  -> {
+                            MovieListAdapter adapter = (MovieListAdapter) recyclerView.getAdapter();
+                            if (adapter == null) {
+                                return;
+                            }
+                            viewModel.removeMovie(movie);
+                            adapter.notifyItemRemoved(position);
+                            adapter.notifyItemRangeChanged(position, 1);
                     }
-                    MovieDb.getInstance().removeMovie(movie);
-                    adapter.notifyItemRemoved(position);
-                    adapter.notifyItemRangeChanged(position, 1);
-                }
-                );
+        );
+                 recyclerView.setAdapter(adapter);
+
+        });
+
         recyclerView.setAdapter(adapter);
 
 

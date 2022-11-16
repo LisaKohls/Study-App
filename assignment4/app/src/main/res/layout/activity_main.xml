@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:paddingHorizontal="16dp"
     android:paddingVertical="16dp"
-    tools:context=".MainActivity">
+    tools:context=".ui.MainActivity">
 
     <Button
         android:id="@+id/searchBtn"

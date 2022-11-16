@@ -1,4 +1,4 @@
-package de.hdmstuttgart.movietracker;
+package de.hdmstuttgart.movietracker.ui.search;
 
 import android.os.Bundle;
 import android.widget.Button;
@@ -6,18 +6,26 @@ import android.widget.EditText;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.ArrayList;
 import java.util.List;
 
+import de.hdmstuttgart.movietracker.model.Movie;
+import de.hdmstuttgart.movietracker.ui.MovieListAdapter;
+import de.hdmstuttgart.movietracker.R;
+
 public class SearchActivity extends AppCompatActivity {
+
+    private SearchViewModel viewModel;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
+
+        viewModel = new ViewModelProvider(this).get(SearchViewModel.class);
 
         RecyclerView recyclerView = findViewById(R.id.searchRecyclerView);
         //Ausrichtung vertikal-->Linear manager
@@ -34,10 +42,11 @@ public class SearchActivity extends AppCompatActivity {
             String searchText = searchEditText.getText().toString();
 
             //Liste der Filme
-            List<Movie> movies = MovieDb.getInstance().searchMoviesByKeyWord(searchText);
+            List<Movie> movies = viewModel.getMoviesByKeyword(searchText);
             //Adapter zeigt Liste an
             recyclerView.setAdapter(new MovieListAdapter(movies, (movie, position) -> {
-                MovieDb.getInstance().saveMovie(movie);
+
+                viewModel.saveMovie(movie);
                 //Activity beenden
                 finish();
             }));
@@ -50,3 +59,10 @@ public class SearchActivity extends AppCompatActivity {
 //            //rechner bescheid geben von Handlung
 //            notifyItemRemoved(position);
 //            notifyItemRangeChanged(position,1);
+
+//new Thread(() -> {
+//                    AppDatabase db = Room.databaseBuilder(getApplicationContext(),
+//                            AppDatabase.class, "movieDb").build();
+//
+//                    db.movieDao().insert(movie);
+//                }).start();

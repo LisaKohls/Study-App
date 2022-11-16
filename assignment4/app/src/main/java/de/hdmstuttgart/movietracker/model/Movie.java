@@ -1,14 +1,16 @@
-package de.hdmstuttgart.movietracker;
+package de.hdmstuttgart.movietracker.model;
 
-import android.os.Bundle;
-import android.view.View;
-import android.widget.TextView;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
+//erstellt Tabelle, liest aus und erstellt spalten
+//definiert Datenbank strukturen
+@Entity
 public class Movie {
+    //Erstellung von Room, id festlegen
+    @PrimaryKey(autoGenerate = true)
+    public int uid;
 
     //daten der einzelnen elementen ändern sich nicht deshalb final,
     //Kann mit getter aufgerufen werden
