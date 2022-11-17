@@ -34,7 +34,7 @@ public class MovieListAdapter extends RecyclerView.Adapter<MovieListAdapter.Movi
     }
 
     public MovieListAdapter(){
-        this.movieList=new ArrayList<>();
+        this.movieList = new ArrayList<>();
     }
 
     //übergibt Daten an MovieViewHolder Klasse
