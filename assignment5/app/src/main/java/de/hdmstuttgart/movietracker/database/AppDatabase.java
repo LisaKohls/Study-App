@@ -19,12 +19,13 @@ public abstract class AppDatabase extends RoomDatabase {
 
     public abstract MovieDao movieDao();
 
+    //thread safe mit volatile
     private static volatile AppDatabase INSTANCE;
     private static final int NUMBER_OF_THREADS = 4;
-    static final ExecutorService databaseWriteExecutor =
+    public static final ExecutorService databaseWriteExecutor =
             Executors.newFixedThreadPool(NUMBER_OF_THREADS);
 
-    static AppDatabase getDatabase(final Context context) {
+    public static AppDatabase getDatabase(final Context context) {
         //es wird nur eine Datenbank Instanz erzeugt
         if(INSTANCE == null){
             synchronized (AppDatabase.class){
