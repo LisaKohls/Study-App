@@ -22,6 +22,7 @@ public class SearchViewModel extends AndroidViewModel {
 
     //Live Data für asynchrones Aufnehmen von Daten, sobald die Daten reinkommen wird observe genutzt
     LiveData<List<Movie>> getMoviesByKeyword(String keyword) {
+
         return repository.getMoviesByKeyword(keyword);
     }
 

@@ -23,8 +23,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         recyclerView = findViewById(R.id.homeRecyclerView);
-        //Ausrichtung vertikal-->Linear manager
+
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
         recyclerView.setHasFixedSize(true);
 
         viewModel = new ViewModelProvider(this).get(MainViewModel.class);
@@ -43,7 +44,6 @@ public class MainActivity extends AppCompatActivity {
                         movies,
                         (movie, position) -> {
             //Funktion wenn auf movie geklickt wird--> Film gelöscht
-
                             MovieListAdapter adapter = (MovieListAdapter) recyclerView.getAdapter();
                             if (adapter == null) {
                                 return;

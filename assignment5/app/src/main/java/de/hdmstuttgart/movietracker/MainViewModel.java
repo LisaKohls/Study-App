@@ -21,6 +21,7 @@ public class MainViewModel extends AndroidViewModel {
         super(application);
         //repository Schnittstelle zur Datenbank
         repository = new MoviesRepository(application);
+
         moviesLiveData = repository.getSavedMovies();
     }
 
