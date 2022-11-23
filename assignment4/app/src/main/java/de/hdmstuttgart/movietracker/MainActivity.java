@@ -1,4 +1,4 @@
-package de.hdmstuttgart.movietracker.ui;
+package de.hdmstuttgart.movietracker;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
@@ -12,6 +12,8 @@ import android.widget.Button;
 import java.util.ArrayList;
 
 import de.hdmstuttgart.movietracker.R;
+import de.hdmstuttgart.movietracker.ui.MainViewModel;
+import de.hdmstuttgart.movietracker.ui.MovieListAdapter;
 import de.hdmstuttgart.movietracker.ui.search.SearchActivity;
 
 public class MainActivity extends AppCompatActivity {

@@ -28,7 +28,7 @@ public class MainViewModel extends AndroidViewModel {
         moviesLiveData = repository.getSavedMovies();
     }
 
-    LiveData<List<Movie>> getSavedMovies() {
+    public LiveData<List<Movie>> getSavedMovies() {
         return moviesLiveData;
     }
 

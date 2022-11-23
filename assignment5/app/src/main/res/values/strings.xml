@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">MovieTracker</string>
+    <string name="search_for_movie_title">Search for movie title</string>
+    <string name="search">Search</string>
+</resources>

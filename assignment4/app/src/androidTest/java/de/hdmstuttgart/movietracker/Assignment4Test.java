@@ -28,8 +28,6 @@ import static androidx.test.espresso.matcher.ViewMatchers.hasDescendant;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
 
-import de.hdmstuttgart.movietracker.ui.MainActivity;
-
 @LargeTest
 @RunWith(AndroidJUnit4.class)
 public class Assignment4Test {
