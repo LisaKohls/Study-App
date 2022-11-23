@@ -1,8 +1,10 @@
 # StudyApp
-* *Lisa Salzer* 
-* *Lisa Kohls*
+* *Lisa Salzer ls180* 
+* *Lisa Kohls lk210*
 
-# Categories
+## Categories
+* Data Storage
+* Animation and Graphics
 
 We are going to implement a mobile application that allows you to track your study process.\
 In our app we want to include a focus timer and a to do list where you can manage\
