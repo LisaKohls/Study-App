@@ -1,5 +1,5 @@
 # StudyApp
-* *Lisa Salzer ls180* 
+* *Lisa Salzer ls228* 
 * *Lisa Kohls lk210*
 
 ## Categories
