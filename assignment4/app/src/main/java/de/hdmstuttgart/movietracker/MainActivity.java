@@ -17,7 +17,8 @@ import de.hdmstuttgart.movietracker.ui.MovieListAdapter;
 import de.hdmstuttgart.movietracker.ui.search.SearchActivity;
 
 public class MainActivity extends AppCompatActivity {
-    //1:37:01
+
+
     private RecyclerView recyclerView;
     private MovieListAdapter adapter;
     private MainViewModel viewModel;
@@ -54,15 +55,14 @@ public class MainActivity extends AppCompatActivity {
                             adapter.notifyItemRangeChanged(position, 1);
                     }
         );
+
                  recyclerView.setAdapter(adapter);
 
         });
 
         recyclerView.setAdapter(adapter);
 
-
         Button searchButton = findViewById(R.id.searchBtn);
-
 
         recyclerView.setAdapter(adapter);
 

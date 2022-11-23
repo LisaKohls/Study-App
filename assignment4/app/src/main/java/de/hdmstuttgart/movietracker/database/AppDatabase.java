@@ -26,6 +26,7 @@ public abstract class AppDatabase extends RoomDatabase {
 
     static AppDatabase getDatabase(final Context context) {
         //es wird nur eine Datenbank Instanz erzeugt
+
         if(INSTANCE == null){
             synchronized (AppDatabase.class){
                 if(INSTANCE == null){
