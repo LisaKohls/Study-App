@@ -90,6 +90,8 @@ public class ToDoFragment extends Fragment {
 
             toDoAdapter = new ToDoAdapter(new ToDoAdapter.TodoDiff(), iOnClick);
             toDoAdapter.submitList(new ArrayList<>());
+
+            //Adapter gesetzt
             recyclerView.setAdapter(toDoAdapter);
             recyclerView.setItemAnimator(null);
 
@@ -102,6 +104,7 @@ public class ToDoFragment extends Fragment {
                 if (list == null) throw new NullPointerException();
                 Log.d(tag, "Count: " + list.size());
 
+                //aktuelle Liste an Adapter übergeben
                 toDoAdapter.submitList(list);
 
                 if (justSwappedToFragment) {
